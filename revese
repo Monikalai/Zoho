@@ -1,0 +1,31 @@
+#include<stdio.h>
+#include<conio.h>
+#include<string.h>
+char * reverse(char s[],int i,int j) {
+char t;
+while(i<=j) {
+   t=s[i];
+   s[i]=s[j];
+   s[j]=t;
+   i++;
+   j--;
+}
+return s;
+}
+void main() {
+char str[100];
+int i,n=0,prev=0;
+clrscr();
+scanf("%[^\n]s",str);
+strcpy(str,reverse(str,0,strlen(str)-1));
+n=strlen(str);
+for(i=0;i<n;i++) {
+if(str[i]==' ') {
+strcpy(str,reverse(str,prev,i-1));
+prev=i+1;
+}
+}
+strcpy(str,reverse(str,prev,n-1));
+puts(str);
+getch();
+}
