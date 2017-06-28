@@ -1,0 +1,38 @@
+#include<stdio.h>
+#include<conio.h>
+#include<string.h>
+void main() {
+char s[100];
+char s1[100];
+int n,i,x=0,c,j,f=0;
+clrscr();
+gets(s);
+gets(s1);
+n=strlen(s);
+for(i=n;i<n+n;i++) {
+s[i]=s[x];
+x++;
+}
+s[i]='\0';
+puts(s);
+for(i=0;i<strlen(s)-strlen(s1);i++) {
+    x=1;c=0;
+    if(s[i]==s1[0]) {
+	for(j=i+1;j<strlen(s);j++) {
+	   if(s[j]==s1[x]) {
+	    c++;
+	   }else { break;}
+	   ++x;
+	}
+    }
+    if(c==strlen(s1)-1) {
+       f=1;
+       break;
+    }
+}
+if(f==1)
+puts("YES");
+else
+puts("No");
+getch();
+}
