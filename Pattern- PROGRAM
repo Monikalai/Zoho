@@ -1,0 +1,43 @@
+#include<stdio.h>
+#include<string.h>
+void main() {
+char s[100];
+int i,n,j,k,l,t=2;
+clrscr();
+scanf("%s",s);
+n=strlen(s);
+if(strlen(s)%2==0) {
+ printf("We can't print the paterrn");
+}else {
+k=0,l=n-1;
+for(i=0;k<=l;i++) {
+    for(j=0;j<=i;j++)
+      printf(" ");
+    printf("%c",s[k]);
+    for(j=0;j<n-t;j++)
+      printf(" ");
+    if(k!=l)
+      printf("%c",s[l]);
+    printf("\n");
+    t+=2;
+    k++;
+    l--;
+}
+k=k-2;
+l=l+2;
+t=1;
+for(i=k-2;k>=0;i--) {
+    for(j=0;j<=i+2;j++)
+      printf(" ");
+    printf("%c",s[k]);
+    for(j=0;j<t;j++)
+      printf(" ");
+    printf("%c",s[l]);
+    printf("\n");
+    t+=2;
+    k--;
+    l++;
+}
+}
+getch();
+}
