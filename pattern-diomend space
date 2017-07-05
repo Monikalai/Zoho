@@ -1,0 +1,34 @@
+#include<stdio.h>
+void main() {
+int n,i,val,f=0,sp,j;
+clrscr();
+scanf("%d",&n);
+val=n/2,sp=1;
+for(i=0;i<n;i++) {
+   if(i==0||i==n-1) {
+     for(j=0;j<n;j++) {
+	 printf("* ");
+     }
+   }else {
+   for(j=0;j<val;j++)  {
+	printf("* ");
+   }
+   for(j=0;j<sp;j++) {
+	printf("  ");
+   }
+   for(j=0;j<val;j++) {
+	printf("* ");
+   }
+      if(val!=1&&f==0) {
+       val-=1;
+       sp+=2;
+      }else {
+       f=1;
+       val++;
+       sp-=2;
+    }
+   }
+   printf("\n");
+}
+getch();
+}
