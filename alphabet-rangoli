@@ -1,0 +1,39 @@
+#include<stdio.h>
+#include<conio.h>
+void main()
+{
+ int n,t,i,j,sp,val;
+ clrscr();
+ scanf("%d",&n);
+ sp=n+(n-2);
+ val=1;
+ for(i=0;i<n+(n-1);i++) {
+    t=n;
+    for(j=0;j<sp;j++) {
+    printf("-");
+    }
+    for(j=0;j<val;j++) {
+    printf("%c",96+t);
+    if(j>=(val/2)) {
+    t++;
+    }else {
+    t--;
+    }
+    if(j<val-1) {
+     printf("-");
+    }
+    }
+    for(j=0;j<sp;j++) {
+    printf("-");
+    }
+    if(i<n-1) {
+    val+=2;
+    sp-=2;
+    } else {
+    val-=2;
+    sp+=2;
+    }
+    printf("\n");
+ }
+ getch();
+ }
