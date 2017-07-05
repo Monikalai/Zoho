@@ -1,45 +1,33 @@
 #include<stdio.h>
 #include<string.h>
 void main() {
-int n,i,j,k,l,m,x;
+int n,i,j,k,l,m,x,y,l1,m1;
 char a[50][50],s1[30],s2[30];
 clrscr();
 scanf("%d",&n);
 for(i=0;i<n;i++) {
    scanf("%s",a[i]);
 }
-j=0;k=n-1;l=-1;m=-1;x=0;
+j=0;k=n-1;l=-1;m=-1;x=0;y=0;l1=-1;m1=-1;
 while(j<k) {
    for(i=k;i>=j;i--) {
     s1[x++]=a[++l][++m];
+    s2[y++]=a[++l1][++m1];
    }
    k--;
    for(i=k;i>=j;i--) {
      s1[x++]=a[--l][m];
+     s2[y++]=a[l1][--m1];
    }
    j++;
    for(i=k;i>=j;i--) {
       s1[x++]=a[l][--m];
+      s2[y++]=a[--l1][m1];
    }
    k--;
 }
 s1[x]='\0';
-j=0;k=n-1;l=-1;m=-1;x=0;
-while(j<k) {
-   for(i=k;i>=j;i--) {
-    s2[x++]=a[++l][++m];
-   }
-   k--;
-   for(i=k;i>=j;i--) {
-     s2[x++]=a[l][--m];
-   }
-   j++;
-   for(i=k;i>=j;i--) {
-     s2[x++]=a[--l][m];
-   }
-   k--;
-}
-s2[x]='\0';
+s2[y]='\0';
 printf("%s %s\n",s1,s2);
 if(strcmp(s1,s2)==0) {
 printf("Yes");
