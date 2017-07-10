@@ -1,14 +1,36 @@
 #include<stdio.h>
-void main() {
-int n,i,j,k,t,z;
+int n,z,i,j;
 int a[50][50];
+void clockwise();
+void anticlockwise();
+void main() {
+int op;
 clrscr();
-scanf("%d%d",&n,&z);
+printf("Enter the size of matrix:");
+scanf("%d",&n);
+printf("Enter the No of rotation:");
+scanf("%d",&z);
+printf("Enter the matrix:\n");
 for(i=0;i<n;i++) {
   for(j=0;j<n;j++) {
      scanf("%d",&a[i][j]);
   }
 }
+printf("1.clockwise\n2.Anticlockwise");
+printf("\nEnter type of Rotation:");
+scanf("%d",&op);
+switch(op) {
+    case 1:clockwise();
+	   break;
+    case 2:anticlockwise();
+	   break;
+    default:printf("Invalid Option");
+	   break;
+}
+getch();
+}
+void clockwise() {
+int k,t;
 while(z--) {
 j=0;k=n-1;
 while(j<k)  {
@@ -37,5 +59,34 @@ for(i=0;i<n;i++) {
   printf("\n");
 }
 
-getch();
+}
+void anticlockwise() {
+int k,t;
+while(z--) {
+j=0;k=n-1;
+while(j<k)  {
+   t=a[j][j];
+   for(i=j;i<k;i++) {
+     a[j][i]=a[j][i+1];
+   }
+   for(i=j;i<k;i++) {
+     a[i][k]=a[i+1][k];
+   }
+   for(i=k;i>j;i--) {
+     a[k][i]=a[k][i-1];
+   }
+   for(i=k;i>j;i--) {
+    a[i][j]=a[i-1][j];
+   }
+   a[i+1][j]=t;
+   j++;
+   k--;
+}
+}
+for(i=0;i<n;i++) {
+  for(j=0;j<n;j++) {
+     printf("%d ",a[i][j]);
+  }
+  printf("\n");
+}
 }
