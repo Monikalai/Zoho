@@ -1,0 +1,31 @@
+#include<stdio.h>
+#include<string.h>
+void main() {
+char s[100];
+int n,i,j,k,sp;
+clrscr();
+scanf("%s",&s);
+n=strlen(s);
+sp=n+(n-1);
+k=n/2;
+for(i=0;i<n;i++) {
+      k=n/2;
+   for(j=0;j<sp+1;j++) {
+       printf("  ");
+   }
+   for(j=0;j<=i;j++) {
+      if(k<n) {
+	printf("%c ",s[k]);
+      }else {
+	if(k==n) {
+	   k=0;
+	}
+	printf("%c ",s[k]);
+      }
+      k++;
+   }
+   printf("\n");
+   sp-=2;
+}
+getch();
+}
