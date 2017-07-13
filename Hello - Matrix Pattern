@@ -1,0 +1,30 @@
+#include<stdio.h>
+int min(int a,int b,int c,int d) {
+int m;
+    if(a<=b&&a<=c&&a<=d) {
+      m=a;
+    }else if(b<=a&&b<=c&&b<=d) {
+      m=b;
+    }else if(c<=a&&c<=b&&c<=d) {
+      m=c;
+    }else if(d<=a&&d<=b&&d<=c) {
+      m=d;
+    }
+    return m;
+}
+void main()
+{
+int n,len,i,j;
+char s[100];
+clrscr();
+scanf("%s",&s);
+n=strlen(s);
+len=(2*n)-1;
+for(i=0;i<len;i++) {
+ for(j=0;j<len;j++) {
+     printf("%c",s[min(i,j,len-1-i,len-1-j)]);
+ }
+ printf("\n");
+}
+getch();
+}
