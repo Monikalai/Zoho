@@ -1,0 +1,61 @@
+//arrange the elements according to weight 1.isperfectsquare=5,2.multiple of 4 and divide by 6=4,3.even no=3
+#include<stdio.h>
+int isperfectsquare(int n){
+int sum,i;
+for(sum=0,i=1;sum<n;i+=2) {
+     sum+=i;
+     if(sum==n)
+	 return 1;
+}
+return 0;
+}
+int divisibleby6(int n) {
+   int t=n,sum=0;
+   while(t!=0) {
+     sum+=t%10;
+     t=t/10;
+   }
+   if(sum%3==0) {
+      return 1;
+   }else {
+      return 0;
+   }
+}
+
+void main() {
+int n,i,sum[100]={0};
+int a[100],t,j;
+clrscr();
+scanf("%d",&n);
+for(i=0;i<n;i++) {
+ scanf("%d",&a[i]);
+}
+for(i=0;i<n;i++) {
+     if(isperfectsquare(a[i])==1) {
+	  sum[i]+=5;
+     }
+     if((a[i]%4)==0&&divisibleby6(a[i])==1) {
+	  sum[i]+=4;
+     }
+     if((a[i]%2)==0)  {
+	  sum[i]+=3;
+     }
+}
+for(i=0;i<n;i++) {
+  for(j=0;j<n-i-1;j++) {
+     if(sum[j]<sum[j+1]) {
+	  t=sum[j];
+	  sum[j]=sum[j+1];
+	  sum[j+1]=t;
+	  t=a[j];
+	  a[j]=a[j+1];
+	  a[j+1]=t;
+     }
+  }
+}
+
+for(i=0;i<n;i++) {
+  printf("%d->%d\n",a[i],sum[i]);
+}
+getch();
+}
