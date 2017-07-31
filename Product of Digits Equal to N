@@ -1,0 +1,29 @@
+#include<stdio.h>
+void findSmallest(int n) {
+   int i,j=0,res[10];
+   if(n<10) {
+      printf("%d",n+10);
+   } else {
+     for(i=9;i>0;i--) {
+	  while(n%i==0) {
+	   n=n/i;
+	   res[j]=i;
+	   j++;
+	  }
+     }
+   }
+     if(n>10) {
+	printf("Not Possible");
+     }else {
+     for(i=j-1;i>=0;i--) {
+	printf("%d",res[i]);
+     }
+    }
+}
+void main() {
+int n;
+clrscr();
+scanf("%d",&n);
+findSmallest(n);
+getch();
+}
