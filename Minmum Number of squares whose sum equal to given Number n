@@ -1,0 +1,33 @@
+//I/P:100 O/P:1 {10^2=100}  I/P:6 O/P:3 {2^2+1^2+1^2=6}
+
+#include<stdio.h>
+int min(int a,int b) {
+return a<b?a:b;
+}
+int getminsquare(unsigned int n) {
+    int i,j,temp,res;
+    int dp[100];
+    dp[0]=0;
+    dp[1]=1;
+    dp[2]=2;
+    dp[3]=3;
+    for(j=4;j<=n;j++) {
+       dp[j]=j;
+    for(i=1;i<=j;i++) {
+	 temp=i*i;
+	 if(temp>j)
+	     break;
+	 else
+	    dp[j]=min(dp[j],1+dp[j-temp]);
+      }
+    }
+      res=dp[n];
+      return res;
+}
+void main() {
+    int n;
+    clrscr();
+    scanf("%d",&n);
+    printf("%d",getminsquare(n));
+    getch();
+}
